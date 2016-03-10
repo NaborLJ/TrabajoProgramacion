@@ -141,7 +141,7 @@ public class Personajes {
             return aleatorioMagico;
         }else
             return 0;
-    
+     
        }
         while(clase==arquero){
             if(mana>0){
