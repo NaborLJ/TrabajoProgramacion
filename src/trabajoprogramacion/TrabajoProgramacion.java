@@ -5,7 +5,9 @@
  */
 package trabajoprogramacion;
 
+import Personaje.Batalla;
 import Personaje.Personajes;
+import Personaje.Rival;
 
 /**
  *
@@ -18,11 +20,13 @@ public class TrabajoProgramacion {
      */
     public static void main(String[] args) {
        Personajes jugador = new Personajes();
-       Personajes enemigo = new Personajes();
        
-       jugador.setClase();
-       jugador.setSalud();
-        System.out.println(jugador.getSalud());
+       Batalla prueba = new Batalla();
+       
+       
+       prueba.escogerRival();
+       
+       
     }
     
 }
