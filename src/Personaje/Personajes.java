@@ -18,16 +18,30 @@ public class Personajes {
     String mago="mago" ,arquero="arquero",guerrero="guerrero" ;
     private Random rand = new Random(System.nanoTime());
 
-    public void setMana(int mana) {
-        this.mana = mana;
+    public int setMana() {
+        while(clase.equalsIgnoreCase(mago)){
+            mana=250;
+            return mana;
+        }
+        while(clase.equalsIgnoreCase(arquero)){
+            mana=175;
+            return mana;
+        }
+        while(clase.equalsIgnoreCase(guerrero)){
+            mana=110;
+            return mana;
+        }
+            return 0;
+        
     }
 
     public int getMana() {
+        System.out.println("Maná : "+mana);
         return mana;
     }
      
     public int getSalud() {
-        System.out.println("Tu salud es de" +salud);
+        System.out.println("Tu salud es de :" +salud);
         return salud;
     }
 
@@ -43,17 +57,20 @@ public class Personajes {
         return clase;
     }
 
-    public void setSalud() {
-        while(clase.mago){
+    public int setSalud() {
+        while(clase.equalsIgnoreCase(mago)){
             salud=450;
+            return salud;
         }
-        while(clase==arquero){
+        while(clase.equalsIgnoreCase(arquero)){
             salud=500;
+            return salud;
         }
-        while(clase==guerrero){
+        while(clase.equalsIgnoreCase(guerrero)){
             salud=540;
+            return salud;
         }
-            
+            return 0;
     }
 
     public void setDañoFisico(int dañoFisico) {
@@ -71,18 +88,27 @@ public class Personajes {
         switch(op){
             case 1 :
               this.clase=mago;
-              
+              setMana();
+              setSalud();
               break;
             case 2 :
                 this.clase=arquero;
-                
+                setMana();
+                setSalud();
                 break;
             case 3 :
                 this.clase=guerrero;
+                setMana();
+                setSalud();
                 break;
             
         }
         JOptionPane.showMessageDialog(null,"Has escogido "+clase);
+    }
+    public void verEstadisticas(){
+        getMana();
+        getSalud();
+        
     }
     
     //ataques
