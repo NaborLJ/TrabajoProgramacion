@@ -13,6 +13,7 @@ import javax.swing.JOptionPane;
  * @author AAron
  */
 public class Personajes {
+    int aleatorio;
     private int salud,mana,dañoFisico,dañoMagico;
     private String clase;
     String mago="mago" ,arquero="arquero",guerrero="guerrero" ;
@@ -114,7 +115,7 @@ public class Personajes {
     //ataques
     
     public int ataque_fisicoBasico(){
-        int aleatorio;
+        
         if(clase==mago){
             aleatorio=rand.nextInt(20-30);
             return aleatorio;
