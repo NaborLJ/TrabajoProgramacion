@@ -11,7 +11,7 @@ import Personaje.Rival;
 
 /**
  *
- * @author AAron
+ * @author Nabor
  */
 public class TrabajoProgramacion {
 
@@ -23,7 +23,7 @@ public class TrabajoProgramacion {
        
        Batalla prueba = new Batalla();
        
-       
+       prueba.escogerHeroe();
        prueba.escogerRival();
        
        
