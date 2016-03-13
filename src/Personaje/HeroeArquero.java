@@ -34,7 +34,7 @@ public class HeroeArquero extends Personaje{
         return "Disparo doble";
     }
     public String getAtaqueBasico(){
-        return "Disparo rapido";
+        return "Disparo doble";
     }
     @Override
     public int ataqueBasico() {
