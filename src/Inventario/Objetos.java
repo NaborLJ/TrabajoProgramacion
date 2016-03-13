@@ -9,7 +9,7 @@ import Personaje.Personaje;
 
 /**
  *
- * @author Sanny
+ * @author Nabor
  */
 public  abstract class Objetos {
     Personaje jugador;
