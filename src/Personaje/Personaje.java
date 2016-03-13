@@ -72,7 +72,7 @@ public abstract class Personaje {
     public abstract int ataquePropio2();
     public abstract int ataquePropio3();
       
-    public int recibirDaño(){
+    public int recibirDaño(int aleatorio){
         salud =salud-aleatorio;
         return salud;
     }
@@ -81,5 +81,5 @@ public abstract class Personaje {
     public String toString() {
         return "Heroe{" + "salud=" + salud + ", mana=" + mana + ", daño fisico=" + danoFisico + ", daño magico=" + danoMagico + ", nombre=" + nombre + '}';
     }
-
+    
 }
