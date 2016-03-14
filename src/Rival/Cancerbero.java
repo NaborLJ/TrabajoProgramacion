@@ -65,8 +65,8 @@ public class Cancerbero extends Rival {
         aleatorio=rand.nextInt(25-40);
             return aleatorio+danoMagico;
     }
-     public int recibirDaño(){
-        salud=salud-aleatorio;
+     public int recibirDaño(int aleatorio){
+        salud-=aleatorio;
         return salud ;
     }
     

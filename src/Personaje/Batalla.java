@@ -12,6 +12,7 @@ import Rival.Ajax;
 import Personaje.Personajes;
 import Rival.Rival;
 import java.util.ArrayList;
+import java.util.Random;
 import javax.swing.JOptionPane;
 
 /*
@@ -25,6 +26,7 @@ import javax.swing.JOptionPane;
  * @author Usuario
  */
 public class Batalla {
+    private Random rand = new Random(System.nanoTime());
     ArrayList <Objetos> inventario = new ArrayList();
     private Personaje jugador;
     private Rival enemigo;
@@ -84,29 +86,43 @@ public class Batalla {
         
         int op;
         
-        op=Integer.parseInt(JOptionPane.showInputDialog("¿ Entrar en la arena ? \n 1.-Adelante 2.-Cancelar "));
+       /* op=Integer.parseInt(JOptionPane.showInputDialog("¿ Entrar en la arena ? \n 1.-Adelante 2.-Cancelar "));
         switch(op){
-            case 1:
+            case 1:*/
                 JOptionPane.showMessageDialog(null,"Entras en la arena.");
                 escogerHeroe();
-                escogerEnMochila();
                 escogerRival();
-                misOpciones();
+                do{
+                    misOpciones();
+                    if(enemigo.getSalud()>0){
                 opcionesEnemigo();
-            case 2:
+                JOptionPane.showMessageDialog(null,enemigo.toString());
+                    }else{
+                    JOptionPane.showMessageDialog(null,"Has vencido a "+enemigo.getNombre());
+                        }
+                    if(jugador.getSalud()>0){
+                        JOptionPane.showMessageDialog(null,jugador.toString());
+                    }else{
+                        JOptionPane.showMessageDialog(null,enemigo.getNombre()+" Te ha derrotado ");
+                        
+                    }
+                }while(jugador.getSalud()>0 && enemigo.getSalud()>0);
+           /* case 2:
                 JOptionPane.showMessageDialog(null,"Cancelado programa");
-                break;
+                break; */
         }
         
         
         
-    }
+    
     public void misOpciones(){
         int op;
         do{
             op=Integer.parseInt(JOptionPane.showInputDialog("Elige un ataque \n1.-"+jugador.ataqueBasico()+"\n2.-"+jugador.ataquePropio1()+"\n3.-"+jugador.ataquePropio2()+"\n4.-"+jugador.ataquePropio3()+"\n5.-Inventario"));
-          switch(op){
+        }while(op<1 || op>5);
+            switch(op){
               case 1 :
+                  
                   enemigo.recibirDaño(jugador.ataqueBasico());
                   JOptionPane.showMessageDialog(null,"Has usado "+jugador.ataqueBasico());
                   break;
@@ -126,8 +142,8 @@ public class Batalla {
                   //Espacio reservado para uso de inventario;
                   break;
           }
-        }while(op<1 || op>5);
     }
+    
     public void opcionesEnemigo(){
          int op;
         do{
@@ -185,7 +201,7 @@ public class Batalla {
         
     }
     public void escogerRival(){
-        int aux_opcion = (int)(Math.random() * 3);
+        int aux_opcion = (int)(Math.random() * 3)+1;
         
         switch(aux_opcion){
         case 1:

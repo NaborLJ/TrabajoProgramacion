@@ -23,10 +23,10 @@ public class TrabajoProgramacion {
        Personajes jugador = new Personajes();
        Inventario prueba2 = new Inventario();
        Batalla prueba = new Batalla();
+       LeerInfo prueba1 = new LeerInfo();
+      
        
-      prueba.comenzarBatalla();
-       
-       
+       prueba.misOpciones();
     }
     
 }

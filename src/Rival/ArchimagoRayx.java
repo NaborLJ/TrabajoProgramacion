@@ -76,8 +76,8 @@ public class ArchimagoRayx extends Rival{
             return aleatorio+danoFisico;
             
     }
-    public int recibirDaño(){
-        salud=salud-aleatorio;
+    public int recibirDaño(int aleatorio){
+        salud-=aleatorio;
         return salud ;
     }
     

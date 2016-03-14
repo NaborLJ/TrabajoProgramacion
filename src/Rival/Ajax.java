@@ -68,8 +68,8 @@ public class Ajax extends Rival {
             return aleatorio;
             //Ataque Basico
     }
-     public int recibirDaño(){
-        salud=salud-aleatorio;
+     public int recibirDaño(int aleatorio){
+       salud-=aleatorio;
         return salud ;
     }
     

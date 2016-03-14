@@ -57,9 +57,9 @@ public class HeroeGuerrero extends Personaje {
           aleatorio=rand.nextInt(70-90);
             return aleatorio+danoFisico;
     }
-     public int recibirDaño(){
-              salud=salud-aleatorio;
-        return salud;
+     public int recibirDaño(int aleatorio){
+              salud-=aleatorio;
+        return salud ;
     }
     }
     

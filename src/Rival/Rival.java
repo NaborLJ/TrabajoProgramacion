@@ -18,8 +18,8 @@ public abstract class Rival {
     private Random rand = new Random(System.nanoTime());
 
     public Rival(int salud,int mana,int danoFisico,int danoMagico,String nombre) {
-        this.mana= mana;
-        this.salud=salud;
+        this.mana=getMana();
+        this.salud=getSalud();
         this.danoFisico=danoFisico;
         this.danoMagico=danoMagico;
         this.nombre = nombre;
@@ -73,8 +73,9 @@ public abstract class Rival {
     public abstract int ataquePropio3();
       
     public int recibirDaño(int aleatorio){
-        salud =salud-aleatorio;
-        return salud;
+        
+        salud-=aleatorio;
+        return salud ;
     }
 
     @Override

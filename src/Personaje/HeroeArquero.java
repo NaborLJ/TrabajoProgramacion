@@ -62,9 +62,9 @@ public class HeroeArquero extends Personaje{
        aleatorio=rand.nextInt(10-17);
             return aleatorio+(danoFisico*2);
     }
-    public int recibirDaño(){
-        salud =salud-aleatorio;
-        return salud;
+    public int recibirDaño(int aleatorio){
+       salud-=aleatorio;
+        return salud ;
     }
     
 }

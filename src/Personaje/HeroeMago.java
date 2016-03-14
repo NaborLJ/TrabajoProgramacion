@@ -60,9 +60,9 @@ public class HeroeMago extends Personaje {
           aleatorio=rand.nextInt(70-95);
             return aleatorio+danoMagico;
     }
-        public int recibirDaño(){
-              salud =salud-aleatorio;
-        return salud;
+        public int recibirDaño(int aleatorio){
+              salud-=aleatorio;
+        return salud ;
     }
     
 }
