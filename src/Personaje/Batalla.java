@@ -9,7 +9,7 @@ import Inventario.PocionSalud;
 import Rival.Cancerbero;
 import Rival.ArchimagoRayx;
 import Rival.Ajax;
-import Personaje.Personajes;
+
 import Rival.Rival;
 import java.util.ArrayList;
 import java.util.Random;

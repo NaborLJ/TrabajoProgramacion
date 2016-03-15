@@ -7,7 +7,7 @@ package trabajoprogramacion;
 
 import Personaje.Batalla;
 import Inventario.Inventario;
-import Personaje.Personajes;
+
 import Rival.Rival;
 import javax.swing.JOptionPane;
 
@@ -21,7 +21,7 @@ public class TrabajoProgramacion {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-       Personajes jugador = new Personajes();
+       
        Inventario prueba2 = new Inventario();
        Batalla prueba = new Batalla();
        LeerInfo prueba1 = new LeerInfo();
