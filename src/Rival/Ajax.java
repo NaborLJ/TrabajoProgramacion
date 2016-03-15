@@ -13,33 +13,33 @@ import java.util.Random;
  * @author Usuario
  */
 public class Ajax extends Rival {
-    private int salud,mana,danoFisico,danoMagico;
-    String nombre;
-    private Random rand = new Random(System.nanoTime());
+   
     
-    public Ajax(int salud, int mana, int danoFisico, int danoMagico, String nombre) {
-        super(salud, mana, danoFisico, danoMagico, nombre);
-        this.salud = 300;
-        this.mana = 150;
-        this.danoFisico = 10;
+    public Ajax(String nombre) {
+        super("Ajax");
+        this.salud = 350;
+        this.mana = 200;
+        this.danoFisico = 13;
         this.danoMagico =0;
-        this.nombre = "Ajax";
+        this.nombre = nombre;
     }
     //Ataques
-    public String getAtaque1(){
-        return "Empalar" ;
+    public String getAtaquePropio1(){
+        return "Devastar" ;
     }
-    public String getAtaque2(){
+    public String getAtaquePropio2(){
         return "Golpe Mortal";
     }
-    public String getAtaque3(){
+    public String getAtaquePropio3(){
         return "Arremetida Enfurecida";
+    }
+    public String getAtaqueBasico(){
+        return "Hachazo";
     }
     
     @Override
     public int ataquePropio1() {
-        int aleatorio;
-        aleatorio=rand.nextInt(50-70);
+        aleatorio=(int) (Math.random() * (50 - 70) + 50);
         mana=mana-30;
             return aleatorio+danoFisico;
       //Ataque propio 1
@@ -47,24 +47,22 @@ public class Ajax extends Rival {
 
     @Override
     public int ataquePropio2() {
-        int aleatorio;
-        aleatorio=rand.nextInt(70-75);
+        aleatorio=(int) (Math.random() * (70 - 75) + 70);
         mana=mana-40;
             return aleatorio+danoFisico; //Ataque propio 2
     }
 
     @Override
     public int ataquePropio3() {
-        int aleatorio;
-        aleatorio=rand.nextInt(40-90);
+        
+        aleatorio=(int) (Math.random() * (40 - 90) + 40);
         mana=mana-20;
             return aleatorio+danoFisico; //Ataque propio 3
     }
 
     @Override
     public int ataqueBasico() {
-        int aleatorio;
-         aleatorio=rand.nextInt(10-15);
+         aleatorio=(int) (Math.random() * (10 - 15) + 10);
             return aleatorio;
             //Ataque Basico
     }

@@ -12,21 +12,21 @@ import java.util.Random;
  * @author Sanny
  */
 public class HeroeMago extends Personaje {
-    int aleatorio;
-    private Random rand = new Random(System.nanoTime());
-    int salud,mana,danoFisico,danoMagico;
-    String nombre;
-    public HeroeMago(int salud, int mana, int danoFisico, int danoMagico, String nombre) {
-        super(salud, mana, danoFisico, danoMagico, nombre);
-        
+    
+    public HeroeMago() {
+        super("Mago");
+        this.salud=400;
+        this.mana=500;
+        this.danoFisico=7;
+        this.danoMagico=12;
     }
-    public String getAtaque1(){
+    public String getAtaquePropio1(){
         return "Pulso arcano" ;
     }
-    public String getAtaque2(){
+    public String getAtaquePropio2(){
         return "Fragmentos de hielo";
     }
-    public String getAtaque3(){
+    public String getAtaquePropio3(){
         return "Pyroexplosion";
     }
     public String getAtaqueBasico(){
@@ -34,14 +34,14 @@ public class HeroeMago extends Personaje {
     }
     @Override
     public int ataqueBasico() {
-         aleatorio=rand.nextInt(10-15);
+         aleatorio=(int) (Math.random() * (10 - 15) + 10);
             return aleatorio+danoFisico;
     }
 
     @Override
     public int ataquePropio1() {
         mana=mana-35;
-          aleatorio=rand.nextInt(20-35);
+         aleatorio=(int) (Math.random() * (20 - 35) + 20);
             return aleatorio+danoFisico;
     }
 
@@ -49,15 +49,15 @@ public class HeroeMago extends Personaje {
     public int ataquePropio2() {
         mana=mana-40;
         int fragmentosAlea;
-          fragmentosAlea=rand.nextInt(0-3);
-          aleatorio=rand.nextInt(10-15);
-            return aleatorio+fragmentosAlea+danoMagico;
+         aleatorio=(int) (Math.random() * (10 -15) + 10);
+          fragmentosAlea=(int)(Math.random()* (0-3));
+            return (aleatorio*fragmentosAlea)+danoMagico;
     }
 
     @Override
     public int ataquePropio3() {
        mana=mana-60;
-          aleatorio=rand.nextInt(70-95);
+        aleatorio=(int) (Math.random() * (70 - 95) + 70);
             return aleatorio+danoMagico;
     }
         public int recibirDaño(int aleatorio){

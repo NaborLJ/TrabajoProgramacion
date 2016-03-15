@@ -15,10 +15,10 @@ import java.util.Scanner;
  */
 public class LeerInfo {
      public void leerFichero(String nombreFichero){
-        File f = new File("F:\\DAM1\\PROGRAMACION\\TrabajoProgramacion\\src\\trabajoprogramacion\\Informacion.txt");
+        File f = new File(nombreFichero);
         Scanner sc= null;
         try {
-            f = new File ("F:\\DAM1\\PROGRAMACION\\TrabajoProgramacion\\src\\trabajoprogramacion\\Informacion.txt");
+            f = new File (nombreFichero);
              sc = new Scanner(f);
              while(sc.hasNextLine()){
                  String res = sc.nextLine();
@@ -32,3 +32,4 @@ public class LeerInfo {
         }
     }
 }
+     

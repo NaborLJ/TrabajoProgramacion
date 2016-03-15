@@ -13,27 +13,24 @@ import java.util.Random;
  * @author Nabor
  */
 public class ArchimagoRayx extends Rival{
-    int aleatorio;
-    private Random rand = new Random(System.nanoTime());
-    int salud,mana,danoFisico,danoMagico;
-    String nombre;
-    public ArchimagoRayx(int salud, int mana, int danoFisico, int danoMagico, String nombre) {
-        super(salud, mana, danoFisico, danoMagico, nombre);
-        this.salud=250;
-        this.mana=300;
-        this.danoMagico=10;
-        this.danoFisico=3;
-        this.nombre="Archimago Rayx";
+  
+    public ArchimagoRayx(String nombre) {
+        super("Archimago Rayx");
+        this.salud = 250;
+        this.mana = 450;
+        this.danoFisico = 6;
+        this.danoMagico =12;
+        this.nombre = nombre;
     }
     
      //Ataques
-    public String getAtaque1(){
+    public String getAtaquePropio1(){
         return "Lanzada electrica" ;
     }
-    public String getAtaque2(){
+    public String getAtaquePropio2(){
         return "Ventisca";
     }
-    public String getAtaque3(){
+    public String getAtaquePropio3(){
         return "Pirofrío";
     }
     public String getAtaqueBasico(){
@@ -44,7 +41,8 @@ public class ArchimagoRayx extends Rival{
     public int ataquePropio1() {
          
          mana=mana-50;
-        aleatorio=rand.nextInt(50-70);
+         aleatorio=(int) (Math.random() * (50 - 70) + 50);
+        
             return aleatorio+danoMagico;
       
     }
@@ -53,7 +51,7 @@ public class ArchimagoRayx extends Rival{
     public int ataquePropio2() {
         
          mana=mana-70;
-        aleatorio=rand.nextInt(30-85);
+          aleatorio=(int) (Math.random() * (30 - 85) + 30);
             return aleatorio+danoMagico;
      
     }
@@ -62,7 +60,7 @@ public class ArchimagoRayx extends Rival{
     public int ataquePropio3() {
       
          mana=mana-20;
-        aleatorio=rand.nextInt(25-35);
+        aleatorio=(int) (Math.random() * (25 - 35) + 25);
             return aleatorio+danoMagico;
      
     }
@@ -71,14 +69,13 @@ public class ArchimagoRayx extends Rival{
     public int ataqueBasico() {
         //Se le suma el ataque Fisico al ataque basico de los tipo mago
         //debido al cosumo de mana
-        
-         aleatorio=rand.nextInt(10-15);
+         aleatorio=(int) (Math.random() * (10 - 15) + 10);
             return aleatorio+danoFisico;
             
     }
     public int recibirDaño(int aleatorio){
-        salud-=aleatorio;
-        return salud ;
+        this.salud-=aleatorio;
+        return this.salud ;
     }
     
 }

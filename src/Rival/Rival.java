@@ -12,14 +12,14 @@ import java.util.Random;
  * @author Usuario
  */
 public abstract class Rival {
-    private int salud,mana,danoFisico,danoMagico;
-    String nombre;
-    int aleatorio;
-    private Random rand = new Random(System.nanoTime());
+    protected int salud,mana,danoFisico,danoMagico;
+    protected String nombre;
+    protected int aleatorio;
+    
 
-    public Rival(int salud,int mana,int danoFisico,int danoMagico,String nombre) {
-        this.mana=getMana();
-        this.salud=getSalud();
+    public Rival(String nombre) {
+        this.mana=mana;
+        this.salud=salud;
         this.danoFisico=danoFisico;
         this.danoMagico=danoMagico;
         this.nombre = nombre;
@@ -67,6 +67,21 @@ public abstract class Rival {
         return nombre;
     }
         //Ataques
+    public String getAtaquePropio1() {
+        return "";
+    }
+
+    public String getAtaquePropio2() {
+        return "";
+    }
+
+    public String getAtaquePropio3() {
+        return "";
+    }
+
+    public String getAtaqueBasico() {
+        return "";
+    }
     public abstract int ataqueBasico();
      public abstract int ataquePropio1();
     public abstract int ataquePropio2();

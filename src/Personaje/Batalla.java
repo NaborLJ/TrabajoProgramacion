@@ -26,7 +26,7 @@ import javax.swing.JOptionPane;
  * @author Usuario
  */
 public class Batalla {
-    private Random rand = new Random(System.nanoTime());
+    
     ArrayList <Objetos> inventario = new ArrayList();
     private Personaje jugador;
     private Rival enemigo;
@@ -86,9 +86,9 @@ public class Batalla {
         
         int op;
         
-       /* op=Integer.parseInt(JOptionPane.showInputDialog("¿ Entrar en la arena ? \n 1.-Adelante 2.-Cancelar "));
+        op=Integer.parseInt(JOptionPane.showInputDialog("¿ Entrar en la arena ? \n 1.-Adelante 2.-Cancelar "));
         switch(op){
-            case 1:*/
+            case 1:
                 JOptionPane.showMessageDialog(null,"Entras en la arena.");
                 escogerHeroe();
                 escogerRival();
@@ -107,36 +107,37 @@ public class Batalla {
                         
                     }
                 }while(jugador.getSalud()>0 && enemigo.getSalud()>0);
-           /* case 2:
+            case 2:
                 JOptionPane.showMessageDialog(null,"Cancelado programa");
-                break; */
+                break; 
         }
-        
+    }
         
         
     
     public void misOpciones(){
         int op;
         do{
-            op=Integer.parseInt(JOptionPane.showInputDialog("Elige un ataque \n1.-"+jugador.ataqueBasico()+"\n2.-"+jugador.ataquePropio1()+"\n3.-"+jugador.ataquePropio2()+"\n4.-"+jugador.ataquePropio3()+"\n5.-Inventario"));
+            op=Integer.parseInt(JOptionPane.showInputDialog("Elige un ataque \n1.-"+jugador.getAtaqueBasico()+"\n2.-"+jugador.getAtaquePropio1()+"\n3.-"+jugador.getAtaquePropio2()+"\n4.-"+jugador.getAtaquePropio3()+"\n5.-Inventario"));
         }while(op<1 || op>5);
             switch(op){
               case 1 :
                   
                   enemigo.recibirDaño(jugador.ataqueBasico());
-                  JOptionPane.showMessageDialog(null,"Has usado "+jugador.ataqueBasico());
+                  JOptionPane.showMessageDialog(null,"Has usado "+jugador.getAtaqueBasico()+" causando un daño de "+jugador.ataqueBasico());
+                  
                   break;
               case 2 :
                   enemigo.recibirDaño(jugador.ataquePropio1());
-                  JOptionPane.showMessageDialog(null,"Has usado "+jugador.ataquePropio1());
+                  JOptionPane.showMessageDialog(null,"Has usado "+jugador.getAtaquePropio1()+" causando un daño de "+jugador.ataquePropio1());
                   break;
               case 3 :
                   enemigo.recibirDaño(jugador.ataquePropio2());
-                  JOptionPane.showMessageDialog(null,"Has usado "+jugador.ataquePropio2());
+                  JOptionPane.showMessageDialog(null,"Has usado "+jugador.getAtaquePropio2()+" causando un daño de "+jugador.ataquePropio2());
                   break;
               case 4 :
                   enemigo.recibirDaño(jugador.ataquePropio3());
-                  JOptionPane.showMessageDialog(null,"Has usado "+jugador.ataquePropio3());
+                  JOptionPane.showMessageDialog(null,"Has usado "+jugador.getAtaquePropio3()+" causando un daño de "+jugador.ataquePropio3());
                   break;
               case 5 :
                   //Espacio reservado para uso de inventario;
@@ -151,19 +152,19 @@ public class Batalla {
           switch(op){
               case 1 :
                   jugador.recibirDaño(enemigo.ataqueBasico());
-                  JOptionPane.showMessageDialog(null,enemigo.getNombre()+" ha usado "+enemigo.ataqueBasico());
+                  JOptionPane.showMessageDialog(null,enemigo.getNombre()+" ha usado "+enemigo.getAtaqueBasico()+" causando un daño de "+enemigo.ataqueBasico());
                   break;
               case 2 :
                   jugador.recibirDaño(enemigo.ataquePropio1());
-                  JOptionPane.showMessageDialog(null,enemigo.getNombre()+" ha usado "+enemigo.ataquePropio1());
+                  JOptionPane.showMessageDialog(null,enemigo.getNombre()+" ha usado "+enemigo.getAtaquePropio1()+" causando un daño de "+enemigo.ataquePropio1());
                   break;
               case 3 :
                   jugador.recibirDaño(enemigo.ataquePropio2());
-                  JOptionPane.showMessageDialog(null,enemigo.getNombre()+" ha usado "+enemigo.ataquePropio2());
+                  JOptionPane.showMessageDialog(null,enemigo.getNombre()+" ha usado "+enemigo.getAtaquePropio2()+" causando un daño de "+enemigo.ataquePropio2());
                   break;
               case 4 :
                   jugador.recibirDaño(enemigo.ataquePropio3());
-                  JOptionPane.showMessageDialog(null,enemigo.getNombre()+" ha usado "+enemigo.ataquePropio3());
+                  JOptionPane.showMessageDialog(null,enemigo.getNombre()+" ha usado "+enemigo.getAtaquePropio3()+" causando un daño de "+enemigo.ataquePropio3());
                   break;
     }
         }while(op<1 || op>4);
@@ -175,19 +176,19 @@ public class Batalla {
         op=Integer.parseInt(JOptionPane.showInputDialog("¿ Escoge a tu héroe ? \n 1.-Ranger \n 2.-Caballero \n 3.-Mago \n 4.-Cancelar "));
         switch(op){
             case 1 :
-              jugador = new HeroeArquero(500,170,10,8,"Ranger");
+              jugador = new HeroeArquero();
               JOptionPane.showMessageDialog(null,"Has escogido  : "+jugador.getNombre());
               JOptionPane.showMessageDialog(null,"Atributos del  "+jugador.toString());
               break;
               
             case 2 :
-                jugador= new HeroeGuerrero(550,150,12,0,"Caballero");
+                jugador= new HeroeGuerrero();
                  JOptionPane.showMessageDialog(null,"Has escogido  : "+jugador.getNombre());
                     JOptionPane.showMessageDialog(null,"Atributos del  "+jugador.toString());
                  break;
               
             case 3:
-                jugador= new HeroeMago(450,300,5,10,"Mago");
+                jugador= new HeroeMago();
                  JOptionPane.showMessageDialog(null,"Has escogido  : "+jugador.getNombre());
                  JOptionPane.showMessageDialog(null,"Atributos del  "+jugador.toString());
                  break;
@@ -206,19 +207,19 @@ public class Batalla {
         switch(aux_opcion){
         case 1:
                 
-                enemigo = new Ajax(300,150,30,0,"Ajax");
+                enemigo = new Ajax("Ajax");
                 JOptionPane.showMessageDialog(null,"Ha aparecido un rival : "+enemigo.getNombre());
                 JOptionPane.showMessageDialog(null,"Atributos del  "+enemigo.toString());
                 break;
         
         case 2 :
-            enemigo = new ArchimagoRayx(250,350,10,3,"Archimago Rayx");
+            enemigo = new ArchimagoRayx("Archimago Rayx");
             JOptionPane.showMessageDialog(null,"Ha aparecido un rival : "+enemigo.getNombre());
             JOptionPane.showMessageDialog(null,"Atributos del "+enemigo.toString());
             break;
             
         case 3 :
-            enemigo= new Cancerbero(370,200,5,5,"Cancerbero");
+            enemigo= new Cancerbero("Cancerbero");
             JOptionPane.showMessageDialog(null,"Ha aparecido un rival : "+enemigo.getNombre());
             JOptionPane.showMessageDialog(null,"Atributos del "+enemigo.toString());
             break;

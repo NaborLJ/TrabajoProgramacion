@@ -13,26 +13,23 @@ import java.util.Random;
  * @author Sanny
  */
 public class Cancerbero extends Rival {
-    int aleatorio;
-    private Random rand = new Random(System.nanoTime());
-    int salud,mana,danoFisico,danoMagico;
-    String nombre;
-    public Cancerbero(int salud, int mana, int danoFisico, int danoMagico, String nombre) {
-        super(salud, mana, danoFisico, danoMagico, nombre);
-        this.salud=370;
-        this.mana=200;
-        this.danoFisico=5;
-        this.danoMagico=5;
-        this.nombre="Cancerbero";
+  
+    public Cancerbero(String nombre) {
+        super ("Cancerbero");
+        this.salud = 320;
+        this.mana = 320;
+        this.danoFisico = 10;
+        this.danoMagico = 8;
+        
         
     }
-    public String getAtaque1(){
+    public String getAtaquePropio1(){
         return "Desgarrar" ;
     }
-    public String getAtaque2(){
+    public String getAtaquePropio2(){
         return "Escupir lava";
     }
-    public String getAtaque3(){
+    public String getAtaquePropio3(){
         return "Mordisco";
     }
     public String getAtaqueBasico(){
@@ -41,33 +38,33 @@ public class Cancerbero extends Rival {
 
     @Override
     public int ataqueBasico() {
-        aleatorio=rand.nextInt(10-17);
+         aleatorio=(int) (Math.random() * (10 - 17) + 10);
             return aleatorio;
     }
 
     @Override
     public int ataquePropio1() {
          mana=mana-50;
-        aleatorio=rand.nextInt(50-60);
+        aleatorio=(int) (Math.random() * (50 - 60) + 50);
             return aleatorio+danoFisico;
     }
 
     @Override
     public int ataquePropio2() {
          mana=mana-45;
-        aleatorio=rand.nextInt(40-75);
+        aleatorio=(int) (Math.random() * (40 - 75) + 40);
             return aleatorio+danoMagico;
     }
 
     @Override
     public int ataquePropio3() {
          mana=mana-30;
-        aleatorio=rand.nextInt(25-40);
+        aleatorio=(int) (Math.random() * (25 - 40) + 25);
             return aleatorio+danoMagico;
     }
      public int recibirDaño(int aleatorio){
-        salud-=aleatorio;
-        return salud ;
+        this.salud-=aleatorio;
+        return this.salud ;
     }
     
 }

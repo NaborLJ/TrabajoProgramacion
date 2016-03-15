@@ -12,20 +12,21 @@ import java.util.Random;
  * @author Sanny
  */
 public class HeroeGuerrero extends Personaje {
-    int aleatorio;
-    private Random rand = new Random(System.nanoTime());
-    int salud,mana,danoFisico,danoMagico;
-    String nombre;
-    public HeroeGuerrero(int salud, int mana, int danoFisico, int danoMagico, String nombre) {
-        super(salud, mana, danoFisico, danoMagico, nombre);
+   
+    public HeroeGuerrero() {
+        super("Caballero");
+        this.salud=500;
+        this.mana=300;
+        this.danoFisico=10;
+        this.danoMagico=0;
     }
-    public String getAtaque1(){
+    public String getAtaquePropio1(){
         return "Embestir" ;
     }
-    public String getAtaque2(){
+    public String getAtaquePropio2(){
         return "Golpe con escudo";
     }
-    public String getAtaque3(){
+    public String getAtaquePropio3(){
         return "Ejecutar";
     }
     public String getAtaqueBasico(){
@@ -33,28 +34,28 @@ public class HeroeGuerrero extends Personaje {
     }
     @Override
     public int ataqueBasico() {
-         aleatorio=rand.nextInt(10-18);
+         aleatorio=(int) (Math.random() * (10 - 18) + 10);
             return aleatorio;
     }
 
     @Override
     public int ataquePropio1() {
           mana=mana-45;
-          aleatorio=rand.nextInt(30-45);
+           aleatorio=(int) (Math.random() * (30 - 45) + 30);
             return aleatorio+danoFisico;
     }
 
     @Override
     public int ataquePropio2() {
        mana=mana-25;
-          aleatorio=rand.nextInt(30-35);
+        aleatorio=(int) (Math.random() * (30 - 35) + 30);
             return aleatorio+danoFisico;
     }
 
     @Override
     public int ataquePropio3() {
         mana=mana-75;
-          aleatorio=rand.nextInt(70-90);
+         aleatorio=(int) (Math.random() * (70 - 90) + 70);
             return aleatorio+danoFisico;
     }
      public int recibirDaño(int aleatorio){

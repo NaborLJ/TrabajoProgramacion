@@ -12,25 +12,22 @@ import java.util.Random;
  * @author Nabor
  */
 public class HeroeArquero extends Personaje{
-    int aleatorio;
-    private Random rand = new Random(System.nanoTime());
-    int salud,mana,danoFisico,danoMagico;
-    String nombre;
-    public HeroeArquero(int salud, int mana, int danoFisico, int danoMagico, String nombre) {
-        super(salud, mana, danoFisico, danoMagico, nombre);
+    
+    public HeroeArquero() {
+        super("Ranger");
         this.salud=500;
-        this.mana=180;
+        this.mana=300;
         this.danoFisico=10;
         this.danoMagico=8;
-        this.nombre="Ranger";
+        
     }
- public String getAtaque1(){
+ public String getAtaquePropio1(){
         return "Flecha certera" ;
     }
-    public String getAtaque2(){
+    public String getAtaquePropio2(){
         return "Flecha venenosa";
     }
-    public String getAtaque3(){
+    public String getAtaquePropio3(){
         return "Disparo doble";
     }
     public String getAtaqueBasico(){
@@ -38,28 +35,28 @@ public class HeroeArquero extends Personaje{
     }
     @Override
     public int ataqueBasico() {
-       aleatorio=rand.nextInt(10-17);
+       aleatorio=(int) (Math.random() * (10 - 17) + 10);
             return aleatorio;
     }
 
     @Override
     public int ataquePropio1() {
         mana=mana-45;
-       aleatorio=rand.nextInt(50-60);
+       aleatorio=(int) (Math.random() * (50 - 60) + 50);
             return aleatorio;
     }
 
     @Override
     public int ataquePropio2() {
-        mana=mana-60;
-       aleatorio=rand.nextInt(38-42);
+       aleatorio=(int) (Math.random() * (38 - 42) + 38);
+       mana=mana-60;
             return aleatorio+danoFisico+danoMagico;
     }
 
     @Override
     public int ataquePropio3() {
-        mana=mana-35;
-       aleatorio=rand.nextInt(10-17);
+       aleatorio=(int) (Math.random() * (10 - 17) + 10);
+       mana=mana-35;
             return aleatorio+(danoFisico*2);
     }
     public int recibirDaño(int aleatorio){
