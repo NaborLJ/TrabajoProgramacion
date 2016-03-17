@@ -10,6 +10,8 @@ import Inventario.Inventario;
 
 import Rival.Rival;
 import javax.swing.JOptionPane;
+import libreriaimprimir.LibreriaImprimir;
+
 
 /**
  *
